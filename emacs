@@ -135,6 +135,15 @@
 (global-set-key [f8] 'goto-line)
 (global-set-key [f9] 'compile)
 
+;; Always scroll compilation buffer
+(setq compilation-scroll-output t)
+
+;; Always show colors in compilation buffer
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (ansi-color-apply-on-region compilation-filter-start (point)))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
 ;; Always show trailing whitespace
 (setq show-trailing-whitespace t)
 
