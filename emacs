@@ -161,24 +161,3 @@
 
 ;; Not indentation of C++ namespaces
 (c-set-offset 'innamespace 0)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (helm-rtags flycheck-rtags ag rtags markdown-mode cmake-mode helm-projectile helm projectile yaml-mode web-mode use-package magit flycheck alect-themes)))
- '(rtags-display-result-backend (quote helm) t)
- '(web-mode-code-indent-offset 2)
- '(web-mode-enable-current-column-highlight t)
- '(web-mode-enable-current-element-highlight t)
- '(web-mode-engines-alist (quote (("django" . "\\.html\\'"))) t)
- '(web-mode-markup-indent-offset 2))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
