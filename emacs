@@ -159,6 +159,9 @@
 ;; Get rid of those '~' backup files
 (setq make-backup-files nil)
 
+;; Not indentation of C++ namespaces
+(c-set-offset 'innamespace 0)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
