@@ -20,6 +20,7 @@
   :bind
   ([f11] . magit)
   ("C-c b" . magit-blame))
+(setq smerge-command-prefix "\C-c")
 
 ;; Load and use flycheck globally
 (use-package flycheck
@@ -170,3 +171,9 @@
 
 ;; Not indentation of C++ namespaces
 (c-set-offset 'innamespace 0)
+
+;; Slightly less indentation in shell scripts
+(setq sh-basic-offset 2)
+
+;; Show trailing whitespace in C/C++ sources
+(add-hook 'c-mode-common-hook (function (lambda () (setq show-trailing-whitespace t))))
