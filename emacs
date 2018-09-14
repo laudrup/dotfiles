@@ -20,6 +20,7 @@
   :bind
   ([f11] . magit)
   ("C-c b" . magit-blame))
+(setq smerge-command-prefix "\C-c")
 
 ;; Load and use flycheck globally
 (use-package flycheck
@@ -141,6 +142,15 @@
 (global-set-key [f8] 'goto-line)
 (global-set-key [f9] 'compile)
 
+;; Always scroll compilation buffer
+(setq compilation-scroll-output t)
+
+;; Always show colors in compilation buffer
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (ansi-color-apply-on-region compilation-filter-start (point)))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
 ;; Always show trailing whitespace
 (setq show-trailing-whitespace t)
 
@@ -164,3 +174,12 @@
 
 ;; Get rid of those '~' backup files
 (setq make-backup-files nil)
+
+;; Not indentation of C++ namespaces
+(c-set-offset 'innamespace 0)
+
+;; Slightly less indentation in shell scripts
+(setq sh-basic-offset 2)
+
+;; Show trailing whitespace in C/C++ sources
+(add-hook 'c-mode-common-hook (function (lambda () (setq show-trailing-whitespace t))))
