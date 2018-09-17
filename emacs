@@ -132,6 +132,7 @@
 
 ;; Use spaces not tabs
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 
 ;; Start fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
