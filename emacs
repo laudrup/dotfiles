@@ -62,6 +62,10 @@
 (use-package ag
   :ensure t)
 
+;; Dockerfile mode for editing Dockerfile
+(use-package dockerfile-mode
+  :ensure t)
+
 ;; Elpy for python editing
 (use-package elpy
   :ensure t
