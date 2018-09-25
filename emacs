@@ -119,6 +119,10 @@
 (use-package markdown-mode
   :ensure t)
 
+;; JSON mode
+(use-package json-mode
+  :ensure t)
+
 ;; Get rid of annoying GUI elements
 (menu-bar-mode -1)
 (tool-bar-mode -1)
