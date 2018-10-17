@@ -101,6 +101,12 @@
   :hook
   (c++-mode . rtags-start-process-unless-running))
 
+;; Modern C++ font highlight
+(use-package modern-cpp-font-lock
+  :ensure t
+  :hook
+  (c++-mode . modern-c++-font-lock-mode))
+
 ;; Helm-projectile
 (use-package helm-projectile
   :ensure t
