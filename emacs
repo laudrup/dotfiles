@@ -156,6 +156,8 @@
 ;; Custom global key bindings
 (global-set-key [f8] 'goto-line)
 (global-set-key [f9] 'compile)
+(global-set-key (kbd "C-c C-c") 'comment-region)
+(global-set-key (kbd "C-c C-u") 'uncomment-region)
 
 ;; Always scroll compilation buffer
 (setq compilation-scroll-output t)
