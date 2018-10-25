@@ -72,6 +72,12 @@
   :config
   (elpy-enable))
 
+;; Bitbake mode
+(use-package bitbake
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.bb?\\'" . bitbake-mode)))
+
 ;; Projectile
 (use-package projectile
   :ensure t
