@@ -19,8 +19,9 @@
   :ensure t
   :bind
   ([f11] . magit)
-  ("C-c b" . magit-blame))
-(setq smerge-command-prefix "\C-c")
+  ("C-c b" . magit-blame)
+  :config
+  (setq smerge-command-prefix "\C-c"))
 
 ;; Load and use flycheck globally
 (use-package flycheck
@@ -86,6 +87,12 @@
   :bind
   ("C-c f" . projectile-ag))
 
+;; Company
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode))
+
 ;; RTags C/C++ indexing
 (use-package rtags
   :ensure t
@@ -99,6 +106,11 @@
     :ensure t)
   (use-package helm-rtags
     :ensure t)
+  (use-package company-rtags
+    :ensure t
+    :config
+    (setq rtags-completions-enabled t)
+    (push 'company-rtags company-backends))
   (defun rtags-index-directory ()
     (interactive)
     (rtags-start-process-unless-running)
