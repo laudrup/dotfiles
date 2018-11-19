@@ -187,7 +187,7 @@
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
 ;; Always show trailing whitespace
-(setq show-trailing-whitespace t)
+(setq-default show-trailing-whitespace t)
 
 ;; Wrap long lines
 (set 'truncate-partial-width-windows nil)
@@ -210,11 +210,11 @@
 ;; Get rid of those '~' backup files
 (setq make-backup-files nil)
 
-;; Not indentation of C++ namespaces
+;; No indentation of C++ namespaces
 (c-set-offset 'innamespace 0)
+
+;; Indent cases in switch statements
+(c-set-offset 'case-label '+)
 
 ;; Slightly less indentation in shell scripts
 (setq sh-basic-offset 2)
-
-;; Show trailing whitespace in C/C++ sources
-(add-hook 'c-mode-common-hook (function (lambda () (setq show-trailing-whitespace t))))
