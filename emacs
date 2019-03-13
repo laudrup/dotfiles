@@ -216,8 +216,11 @@
 ;; Indent cases in switch statements
 (c-set-offset 'case-label '+)
 
-;; No extra indentation in lambda statements
+;; No extra indentation in C++ lambda statements
 (c-set-offset 'inlambda 0)
+
+;; Fix indentation of multiline C++ brace initializers
+(c-set-offset 'brace-list-intro '+)
 
 ;; Slightly less indentation in shell scripts
 (setq sh-basic-offset 2)
