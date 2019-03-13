@@ -216,5 +216,8 @@
 ;; Indent cases in switch statements
 (c-set-offset 'case-label '+)
 
+;; No extra indentation in lambda statements
+(c-set-offset 'inlambda 0)
+
 ;; Slightly less indentation in shell scripts
 (setq sh-basic-offset 2)
