@@ -1,3 +1,5 @@
+;; -*- mode: Lisp;-*-
+
 ;; Setup packages
 (require 'package)
 
