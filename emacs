@@ -179,6 +179,12 @@
 (global-set-key (kbd "C-c C-c") 'comment-region)
 (global-set-key (kbd "C-c C-u") 'uncomment-region)
 
+;; Switch between header/implementation file in C and C++
+(add-hook
+ 'c-mode-common-hook
+ (lambda()
+   (local-set-key (kbd "C-c h") 'ff-find-other-file)))
+
 ;; Always scroll compilation buffer
 (setq compilation-scroll-output t)
 
