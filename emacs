@@ -16,6 +16,17 @@
   (package-install 'use-package))
 (require 'use-package)
 
+;; Load ido
+(use-package ido
+  :ensure t
+  :config
+  (ido-mode t)
+  :init
+  (add-hook
+   'ido-setup-hook
+   (lambda()
+     (define-key ido-completion-map (kbd "<tab>") 'ido-next-match))))
+
 ;; Load magit
 (use-package magit
   :ensure t
@@ -74,6 +85,10 @@
   :ensure t
   :config
   (elpy-enable))
+
+;; Mypy for Python type hinting check
+(use-package flycheck-mypy
+  :ensure t)
 
 ;; Bitbake mode
 (use-package bitbake
@@ -149,6 +164,18 @@
 (use-package json-mode
   :ensure t)
 
+;; Groovy mode
+(use-package groovy-mode
+  :ensure t)
+
+;; Ini mode for configuration files
+(use-package ini-mode
+  :ensure t)
+
+;; Isortify for python imports
+(use-package isortify
+  :ensure t)
+
 ;; Get rid of annoying GUI elements
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -163,6 +190,7 @@
 ;; Use spaces not tabs
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+(setq-default c-basic-offset 4)
 
 ;; Start fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
