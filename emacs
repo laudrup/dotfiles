@@ -45,6 +45,14 @@
   ("C-c n" . flycheck-next-error)
   ("C-c p" . flycheck-previous-error))
 
+(use-package all-the-icons
+  :ensure t)
+
+(use-package spaceline-all-the-icons
+  :ensure t
+  :after spaceline
+  :config (spaceline-all-the-icons-theme))
+
 ;; Load custom theme
 (use-package alect-themes
   :ensure t
