@@ -45,6 +45,9 @@
   ("C-c n" . flycheck-next-error)
   ("C-c p" . flycheck-previous-error))
 
+(use-package spaceline
+  :ensure t)
+
 (use-package all-the-icons
   :ensure t)
 
