@@ -121,31 +121,27 @@
   :config
   (global-company-mode))
 
-;; RTags C/C++ indexing
-(use-package rtags
+;; Language Server Protocol
+(use-package lsp-mode
   :ensure t
-  :bind (:map c-mode-base-map
-              ("M-." . rtags-find-symbol-at-point)
-              ("M-," . rtags-find-references-at-point))
-  :custom
-  (rtags-display-result-backend 'helm)
+  :commands lsp
   :config
-  (use-package flycheck-rtags
+  (use-package lsp-ui
     :ensure t)
-  (use-package helm-rtags
+  (use-package company-lsp
     :ensure t)
-  (use-package company-rtags
-    :ensure t
-    :config
-    (setq rtags-completions-enabled t)
-    (push 'company-rtags company-backends))
-  (defun rtags-index-directory ()
-    (interactive)
-    (rtags-start-process-unless-running)
-    (let ((dir (read-directory-name "Directory with compilation database: ")))
-      (rtags-call-rc "-J" dir)))
-  :hook
-  (c++-mode . rtags-start-process-unless-running))
+  (use-package helm-lsp
+    :ensure t)
+  (progn
+    (lsp-register-client
+     (make-lsp-client :new-connection (lsp-tramp-connection
+                                       "/usr/bin/clangd")
+                      :major-modes '(c-mode c++-mode)
+                      :remote? t
+                      :server-id 'clangd-remote)))
+  :hook ((c++-mode . lsp)
+         (c-mode . lsp))
+  :commands lsp)
 
 ;; Modern C++ font highlight
 (use-package modern-cpp-font-lock
