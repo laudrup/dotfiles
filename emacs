@@ -210,7 +210,7 @@
 
 ;; Custom global key bindings
 (global-set-key [f8] 'goto-line)
-(global-set-key [f9] 'compile)
+(global-set-key [f9] 'projectile-compile-project)
 (global-set-key (kbd "C-c C-c") 'comment-region)
 (global-set-key (kbd "C-c C-u") 'uncomment-region)
 
