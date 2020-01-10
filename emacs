@@ -161,7 +161,9 @@
 
 ;; CMake mode
 (use-package cmake-mode
-  :ensure t)
+  :ensure t
+  :config
+  (setq cmake-tab-width 4))
 
 ;; Markdown mode
 (use-package markdown-mode
