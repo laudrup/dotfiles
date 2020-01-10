@@ -118,7 +118,11 @@
 (use-package company
   :ensure t
   :config
-  (global-company-mode))
+  (use-package company-box
+    :ensure t
+    :config (setq company-box-icons-alist 'company-box-icons-all-the-icons)
+    :hook (company-mode . company-box-mode)
+  (global-company-mode)))
 
 ;; Language Server Protocol
 (use-package lsp-mode
