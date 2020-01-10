@@ -36,11 +36,9 @@
   :config
   (setq smerge-command-prefix "\C-c"))
 
-;; Load and use flycheck globally
+;; Load and use flycheck
 (use-package flycheck
   :ensure t
-  :config
-  (global-flycheck-mode)
   :bind
   ("C-c n" . flycheck-next-error)
   ("C-c p" . flycheck-previous-error))
