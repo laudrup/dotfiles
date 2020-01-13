@@ -274,3 +274,6 @@
 
 ;; Don't save customizations
 (setq custom-file "/dev/null")
+
+;; Don't type yes or no at prompts
+(fset 'yes-or-no-p 'y-or-n-p)
