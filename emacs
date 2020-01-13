@@ -271,3 +271,6 @@
 
 ;; Slightly less indentation in shell scripts
 (setq sh-basic-offset 2)
+
+;; Don't save customizations
+(setq custom-file "/dev/null")
