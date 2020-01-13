@@ -198,9 +198,10 @@
 (setq ring-bell-function 'ignore)
 
 ;; Use spaces not tabs
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq-default c-basic-offset 4)
+(setq-default
+ indent-tabs-mode nil
+ tab-width 4
+ c-basic-offset 4)
 
 ;; Start fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
