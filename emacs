@@ -140,6 +140,7 @@
                       :major-modes '(c-mode c++-mode)
                       :remote? t
                       :server-id 'clangd-remote)))
+  :bind ("M-f" . lsp-execute-code-action)
   :hook ((c++-mode . lsp)
          (c-mode . lsp))
   :commands lsp)
