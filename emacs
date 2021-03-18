@@ -192,6 +192,10 @@
 (use-package isortify
   :ensure t)
 
+;; Flyspell for text modes
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+
 ;; Get rid of annoying GUI elements
 (menu-bar-mode -1)
 (tool-bar-mode -1)
