@@ -16,6 +16,8 @@
   (package-install 'use-package))
 (require 'use-package)
 
+(use-package all-the-icons)
+
 ;; Load ido
 (use-package ido
   :ensure t
