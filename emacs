@@ -134,8 +134,6 @@
   :config
   (use-package lsp-ui
     :ensure t)
-  (use-package company-lsp
-    :ensure t)
   (use-package helm-lsp
     :ensure t)
   (progn
