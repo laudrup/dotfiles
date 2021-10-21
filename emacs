@@ -280,3 +280,6 @@
 
 ;; Don't type yes or no at prompts
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; Enable dir-locals for remote buffers
+(setq enable-remote-dir-locals t)
