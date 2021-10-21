@@ -18,17 +18,6 @@
 
 (use-package all-the-icons)
 
-;; Load ido
-(use-package ido
-  :ensure t
-  :config
-  (ido-mode t)
-  :init
-  (add-hook
-   'ido-setup-hook
-   (lambda()
-     (define-key ido-completion-map (kbd "<tab>") 'ido-next-match))))
-
 ;; Load magit
 (use-package magit
   :ensure t
