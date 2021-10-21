@@ -179,6 +179,12 @@
 (use-package isortify
   :ensure t)
 
+;; Use editorconfig if available
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+
 ;; Flyspell for text modes
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda () (flyspell-mode 1))))
