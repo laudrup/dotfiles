@@ -101,6 +101,8 @@
   :ensure t
   :config
   (projectile-mode)
+  ;; Disable mode line. Speeds up projectile over tramp
+  (setq projectile-mode-line "Projectile")
   :bind
   ("C-c f" . projectile-ag))
 
