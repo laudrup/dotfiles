@@ -94,10 +94,7 @@
 (use-package elpy
   :ensure t
   :config
-  (elpy-enable)
-  :hook
-  (elpy-mode . flycheck-mode))
-
+  (elpy-enable))
 
 ;; Mypy for Python type hinting check
 (use-package flycheck-mypy
