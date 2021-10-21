@@ -155,9 +155,7 @@
 
 ;; CMake mode
 (use-package cmake-mode
-  :ensure t
-  :config
-  (setq cmake-tab-width 4))
+  :ensure t)
 
 ;; Markdown mode
 (use-package markdown-mode
@@ -169,7 +167,9 @@
 
 ;; Groovy mode
 (use-package groovy-mode
-  :ensure t)
+  :ensure t
+  :config
+  (setq groovy-indent-offset 2))
 
 ;; Ini mode for configuration files
 (use-package ini-mode
@@ -203,8 +203,8 @@
 ;; Use spaces not tabs
 (setq-default
  indent-tabs-mode nil
- tab-width 4
- c-basic-offset 4)
+ tab-width 2
+ c-basic-offset 2)
 
 ;; Start fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
