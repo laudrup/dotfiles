@@ -212,8 +212,13 @@
 ;; Ensure UTF-8
 (set-language-environment "UTF-8")
 
-;; Set the default font
-(set-frame-font "Hack-10" nil t)
+;; Set my main variable-width font
+(set-fontset-font "fontset-startup" 'unicode
+    (font-spec :name "Hack" :size 10.0))
+
+;; Use variable-width symbol font as a fallback
+(set-fontset-font "fontset-default" 'unicode
+    (font-spec :name "Symbola" :size 10.0))
 
 ;; Custom global key bindings
 (global-set-key [f8] 'goto-line)
