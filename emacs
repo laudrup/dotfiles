@@ -5,8 +5,9 @@
 
 ;; Extra package repositories
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/") t)
-
+	           '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("gnu" . "http://elpa.gnu.org/packages/") t)
 ;; Initialize the package system
 (package-initialize)
 
@@ -45,11 +46,17 @@
   :after spaceline
   :config (spaceline-all-the-icons-theme))
 
-;; Load custom theme
-(use-package alect-themes
+(use-package solaire-mode
   :ensure t
   :config
-  (load-theme 'alect-black-alt t))
+  (solaire-global-mode +1))
+
+;; Load custom theme
+(use-package modus-themes
+  :ensure t
+  :config
+  (load-theme 'modus-vivendi t))
+(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
 ;; Use webmode for editting webcode
 (use-package web-mode
@@ -89,6 +96,17 @@
 ;; Mypy for Python type hinting check
 (use-package flycheck-mypy
   :ensure t)
+
+;; Python virtual environment activation
+(use-package auto-virtualenv
+  :ensure t
+  :init
+  (use-package pyvenv
+    :ensure t)
+  :config
+  ;;(add-hook 'python-mode-hook 'auto-virtualenv-set-virtualenv)
+  (add-hook 'projectile-after-switch-project-hook 'auto-virtualenv-set-virtualenv)
+  )
 
 ;; Bitbake mode
 (use-package bitbake
@@ -136,6 +154,22 @@
   :hook ((c++-mode . lsp)
          (c-mode . lsp))
   :commands lsp)
+
+(defun my--tramp-send-command--workaround-stty-icanon-bug (conn-vec orig-command &rest args)
+  "See: https://github.com/magit/magit/issues/4720"
+  (let ((command
+         (if (string= "stty -icrnl -icanon min 1 time 0" orig-command)
+             "stty -icrnl"
+           orig-command)))
+    (append (list conn-vec command) args)))
+
+(defun my--tramp-send-command--workaround-stty-icanon-bug--filter-args (args)
+  (apply #'my--tramp-send-command--workaround-stty-icanon-bug args))
+
+(advice-add 'tramp-send-command :filter-args
+            #'my--tramp-send-command--workaround-stty-icanon-bug--filter-args)
+
+(setq tramp-controlmaster-options "-o ControlMaster=auto -o ControlPersiste=no")
 
 ;; Modern C++ font highlight
 (use-package modern-cpp-font-lock
@@ -212,13 +246,8 @@
 ;; Ensure UTF-8
 (set-language-environment "UTF-8")
 
-;; Set my main variable-width font
-(set-fontset-font "fontset-startup" 'unicode
-    (font-spec :name "Hack" :size 10.0))
-
-;; Use variable-width symbol font as a fallback
-(set-fontset-font "fontset-default" 'unicode
-    (font-spec :name "Symbola" :size 10.0))
+(add-to-list 'default-frame-alist
+             '(font . "Aporetic Sans Mono-12"))
 
 ;; Custom global key bindings
 (global-set-key [f8] 'goto-line)
@@ -259,8 +288,9 @@
 ;; Don't use GNU indentation mode for C/C++ files
 (c-set-offset 'substatement-open 0)
 
-;; Open .h files in C++ mode
+;; Open .h and .ipp files in C++ mode
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.ipp\\'" . c++-mode))
 
 ;; Get rid of those '~' backup files
 (setq make-backup-files nil)
@@ -277,6 +307,9 @@
 ;; Fix indentation of multiline C++ brace initializers
 (c-set-offset 'brace-list-intro '+)
 
+;; No indentation of extern "C"
+(c-set-offset 'inextern-lang 0)
+
 ;; Slightly less indentation in shell scripts
 (setq sh-basic-offset 2)
 
@@ -288,3 +321,7 @@
 
 ;; Enable dir-locals for remote buffers
 (setq enable-remote-dir-locals t)
+
+;; Transparent background
+(set-frame-parameter nil 'alpha-background 90)
+(add-to-list 'default-frame-alist '(alpha-background . 90))
