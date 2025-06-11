@@ -316,9 +316,6 @@
 ;; Slightly less indentation in shell scripts
 (setq sh-basic-offset 2)
 
-;; Don't save customizations
-(setq custom-file "/dev/null")
-
 ;; Don't type yes or no at prompts
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -328,3 +325,7 @@
 ;; Transparent background
 (set-frame-parameter nil 'alpha-background 90)
 (add-to-list 'default-frame-alist '(alpha-background . 90))
+
+;; Load/save customs elsewhere to avoid modifying this file
+(setq custom-file "~/.config/emacs-custom.el")
+(load custom-file)
