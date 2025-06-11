@@ -17,7 +17,8 @@
   (package-install 'use-package))
 (require 'use-package)
 
-(use-package all-the-icons)
+(use-package all-the-icons
+  :ensure t)
 
 ;; Load magit
 (use-package magit
