@@ -114,6 +114,12 @@
   :init
   (add-to-list 'auto-mode-alist '("\\.bb?\\'" . bitbake-mode)))
 
+;; Powershell mode
+(use-package powershell
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.ps1?\\'" . powershell-mode)))
+
 ;; Projectile
 (use-package projectile
   :ensure t
