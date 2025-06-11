@@ -270,6 +270,11 @@
   (ansi-color-apply-on-region compilation-filter-start (point)))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
+(defun ansi-colors-region ()
+  (interactive)
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region (point-min) (point-max))))
+
 ;; Always show trailing whitespace
 (setq-default show-trailing-whitespace t)
 
