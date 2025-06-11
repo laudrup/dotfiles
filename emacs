@@ -292,6 +292,9 @@
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.ipp\\'" . c++-mode))
 
+;; Open WiX files in XML mode
+(add-to-list 'auto-mode-alist '("\\.wxs\\'" . nxml-mode))
+
 ;; Get rid of those '~' backup files
 (setq make-backup-files nil)
 
