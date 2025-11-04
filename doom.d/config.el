@@ -84,3 +84,15 @@
    "<f9>" #'projectile-compile-project
    )
   )
+
+;; Use spaces not tabs
+(setq-default
+ indent-tabs-mode nil
+ tab-width 2
+ c-basic-offset 2)
+
+;; Always show trailing whitespace
+(setq-default show-trailing-whitespace t)
+
+;; Slightly less indentation in shell scripts
+(setq sh-basic-offset 2)
