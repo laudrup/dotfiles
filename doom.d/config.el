@@ -76,10 +76,11 @@
 ;; they are implemented.
 (map!
  "<f8>" #'goto-line
+ "<f11>" #'magit
  )
 
-(after! magit
+(after! projectile
   (map!
-   "<f11>" #'magit
+   "<f9>" #'projectile-compile-project
    )
   )
