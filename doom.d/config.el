@@ -96,3 +96,6 @@
 
 ;; Slightly less indentation in shell scripts
 (setq sh-basic-offset 2)
+
+;; Always try to indent on tab
+(setq tab-always-indent t)
