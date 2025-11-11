@@ -99,3 +99,10 @@
 
 ;; Always try to indent on tab
 (setq tab-always-indent t)
+
+;; https://github.com/doomemacs/doomemacs/issues/7623
+(after! cc-mode
+  ;; Don't use treesitter versions.
+  (add-to-list 'major-mode-remap-alist '(c-mode . nil))
+  (add-to-list 'major-mode-remap-alist '(c++-mode . nil))
+  (add-to-list 'major-mode-remap-alist '(c-or-c++-mode . nil)))
