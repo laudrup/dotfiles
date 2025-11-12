@@ -100,6 +100,9 @@
 ;; Always try to indent on tab
 (setq tab-always-indent t)
 
+;; Remove annoying autoclosing of parens etc.
+(remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
+
 ;; https://github.com/doomemacs/doomemacs/issues/7623
 (after! cc-mode
   ;; Don't use treesitter versions.
