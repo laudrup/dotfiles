@@ -108,6 +108,9 @@
 ;; Remove annoying autoclosing of parens etc.
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
+;; The default theme is doom-one
+(setq doom-theme 'doom-one)
+
 ;; https://github.com/doomemacs/doomemacs/issues/7623
 (after! cc-mode
   ;; Don't use treesitter versions.
