@@ -102,6 +102,9 @@
 ;; Always try to indent on tab
 (setq tab-always-indent t)
 
+;; The C++ mode I'm used to
+(setq c-default-style "cc-mode")
+
 ;; Remove annoying autoclosing of parens etc.
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
