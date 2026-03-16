@@ -91,6 +91,8 @@
  tab-width 2
  c-basic-offset 2)
 
+(c-set-offset 'innamespace '0)
+
 ;; Always show trailing whitespace
 (setq-default show-trailing-whitespace t)
 
